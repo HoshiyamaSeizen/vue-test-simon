@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Roboto', sans-serif;
+}
+
+.container {
+	display: flex;
+	.game {
+		display: inline-block;
+		height: 100vh;
+		width: 60%;
+		position: relative;
+		.circle {
+			display: block;
+			width: 400px;
+			height: 400px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			.block {
+				display: block;
+				width: 196px;
+				height: 196px;
+				position: absolute;
+				filter: brightness(75%);
+				border: 3px solid transparent;
+				transition: all 50ms ease;
+				scale: 1;
+			}
+			.block:hover {
+				border: 3px solid darkgrey;
+				scale: 1.02;
+			}
+			.block:active {
+				filter: brightness(100%);
+				scale: 0.98;
+			}
+			.show {
+				filter: brightness(100%);
+			}
+			.top-left {
+				background-color: blue;
+				top: 0;
+				left: 0;
+				border-top-left-radius: 100%;
+			}
+			.top-right {
+				background-color: red;
+				top: 0;
+				right: 0;
+				border-top-right-radius: 100%;
+			}
+			.bottom-left {
+				background-color: yellow;
+				bottom: 0;
+				left: 0;
+				border-bottom-left-radius: 100%;
+			}
+			.bottom-right {
+				background-color: green;
+				bottom: 0;
+				right: 0;
+				border-bottom-right-radius: 100%;
+			}
+		}
+	}
+	.menu {
+		display: flex;
+		flex-direction: column;
+		width: min(40%, 350px);
+		padding: 30px;
+		justify-content: center;
+		h1 {
+			text-align: center;
+			margin-bottom: 20px;
+			font-size: 2rem;
+		}
+		button,
+		select,
+		p,
+		label {
+			font-size: 1.3rem;
+		}
+		.score {
+			font-size: 1.5rem;
+			margin-bottom: 30px;
+			padding-bottom: 30px;
+			border-bottom: 3px solid black;
+		}
+		.lost {
+			color: darkred;
+		}
+		button {
+			margin: 20px 0;
+		}
+	}
+}

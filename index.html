@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Simon The Game</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div id="root" class="container">
+			<div class="game">
+				<div class="circle">
+					<div :class="[{show: shown===0}, 'block top-left']" @click="playerPick(0)"></div>
+					<div :class="[{show: shown===1}, 'block top-right']" @click="playerPick(1)"></div>
+					<div :class="[{show: shown===2}, 'block bottom-left']" @click="playerPick(2)"></div>
+					<div :class="[{show: shown===3}, 'block bottom-right']" @click="playerPick(3)"></div>
+				</div>
+			</div>
+			<div class="menu">
+				<h1>Simon The Game</h1>
+				<p v-show="prevScore>=0" class="lost">You finished with score: {{prevScore}}</p>
+				<div class="score">Score: {{score}}</div>
+				<label for="speed">Difficulty:</label>
+				<select name="speed" id="speed" class="speed" v-model="speed" :disabled="running">
+					<option :value="speeds[0]">Easy</option>
+					<option :value="speeds[1]">Normal</option>
+					<option :value="speeds[2]">Hard</option>
+				</select>
+				<button class="start" @click="start()">{{running?'Stop':'Start'}}</button>
+			</div>
+		</div>
+		<script src="./script.js"></script>
+	</body>
+</html>
